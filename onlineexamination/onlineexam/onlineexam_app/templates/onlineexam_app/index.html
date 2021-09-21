@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django python online exam</title>
+    <script>
+        $
+         function getanswers(){
+        document.getElementById(UserAnswers).innerHTML="";
+        var e=document.getElementsByName("input");
+        for(i=0;i<=e.lenth;i++)
+        {
+            if (e[i].type=="radio")
+            {
+                if(e[i].checked)
+                {
+                    document.getElementById(UserAnswers).innerHTML+="Q "+e[i].name+" The Answer You Are Selected Is :"+e[i].value+"<br/>";
+                }
+            }
+        }
+    } 
+
+    </script>
+   
+    </script>
+</head>
+<body>
+    
+    <center>
+        <h1> creating Online Exam Dynamical </h1>
+        <h3> python Django with javascript $ jQuery </h3>
+        <hr/>
+        
+
+    </center>
+
+    <div style="padding: 30px;">
+        {% for result in Exam %}
+        <table>
+            <tr>
+                <td>
+                    {{result.id}}. {{result.Question}}
+
+                </td>
+            </tr>
+       
+        <hr/>
+        <tr>
+            <td><input type="radio" id =option1 name="{{result.id}}" value={{results.option1}}>{{result.option1}}</td>
+        </tr>
+
+        <tr>
+            <td><input type="radio" id =option2 name="{{result.id}}" value={{results.option2}}>{{result.option2}}</td>
+        </tr>
+
+        <tr>
+            <td><input type="radio" id =option3 name="{{result.id}}" value={{results.option3}}>{{result.option3}}</td>
+        </tr>
+        <tr>
+            <td><input type="radio" id =option4 name="{{result.id}}" value={{results.option4}}>{{result.option4}}</td>
+        </tr>
+
+        <tr>
+            <td>
+                <label id="Corrans" class="rb" style="display: no; color:green"><b>{{result.Corrans}}></label></b></label>
+            </td>
+        </tr>
+
+        
+        <hr/>
+    </table>
+    {% endfor %}
+    
+        <input type="submit" value= "click for results" id="but1" onclick="getanswers();"/>
+         <b id="UserAnswers"></b>
+     
+ 
+
+    </div>  
+</body>
+</html>
